@@ -1,0 +1,34 @@
+import { Pool } from "pg";
+
+export class DatabaseConnection {
+  private static instance: DatabaseConnection;
+  private pool: Pool;
+
+  private constructor() {
+    this.pool = new Pool({
+      host: process.env.DB_HOST || "localhost",
+      port: parseInt(process.env.DB_PORT || "5432"),
+      database: process.env.DB_NAME || "myapp",
+      user: process.env.DB_USER || "postgres",
+      password: process.env.DB_PASSWORD || "iamwhatiam",
+      max: 20,
+      idleTimeoutMillis: 30000,
+      connectionTimeoutMillis: 2000,
+    });
+  }
+
+  public static getInstance(): DatabaseConnection {
+    if (!DatabaseConnection.instance) {
+      DatabaseConnection.instance = new DatabaseConnection();
+    }
+    return DatabaseConnection.instance;
+  }
+
+  public getPool(): Pool {
+    return this.pool;
+  }
+
+  public async close(): Promise<void> {
+    await this.pool.end();
+  }
+}

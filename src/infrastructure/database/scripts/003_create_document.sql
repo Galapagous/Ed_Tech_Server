@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS course_documents (
+  id UUID PRIMARY KEY,
+  url TEXT NOT NULL,
+  course_id UUID REFERENCES courses(id) ON DELETE CASCADE
+);

@@ -1,0 +1,18 @@
+POST http://localhost:3003/api/auth/register
+content-type: application/json
+
+{
+    "email":"galapagous09@gmail.com",
+    "password":"@Password1",
+    "username":"@galapagous"
+}
+
+
+###
+POST http://localhost:3003/api/auth/login
+content-type: application/json
+
+{
+    "email":"galapagous09@gmail.com",
+    "password":"@Password1"
+}

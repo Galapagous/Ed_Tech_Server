@@ -1,0 +1,121 @@
+import { DatabaseConnection } from "../database/connection";
+import { PostgreSQLUserRepository } from "../repositories/PostgreSQLUserRepository";
+import { BcryptPasswordHasher } from "../services/BcryptPasswordHasher";
+import { UUIDGenerator } from "../services/UUIDGenerator";
+import { UserDomainService } from "@/domain/services/UserDomainService";
+import { CreateUserUseCase } from "@/application/use-case/user-cases/CreateUserUseCase";
+import { GetUserUseCase } from "@/application/use-case/user-cases/GetUserUseCase";
+import { UserValidator } from "@/application/validators/UserValidator";
+import { UserController } from "@/presentation/controllers/UserController";
+import { LoginUserUseCase } from "@/application/use-case/user-cases/LoginUserUseCase";
+import { PostgreSQLCourseRepository } from "../repositories/PostgreSQLCourseRepository";
+import { CreateCourseUseCase } from "@/application/use-case/course-case/CreateCourseUseCase";
+import { CourseController } from "@/presentation/controllers/CourseController";
+import { CourseValidator } from "@/application/validators/CourseValidator";
+import { GetCourseUserCase } from "@/application/use-case/course-case/GetCourseUseCase";
+import { MigrationRunner } from "../database/migrations/runMigration";
+import { GetCourse } from "@/application/use-case/course-case/GetCourse";
+import { DeleteCourseUseCase } from "@/application/use-case/doc-case/deleteDocUseCase";
+
+export class DIContainer {
+  private static instance: DIContainer;
+  private dependencies: Map<string, any> = new Map();
+
+  private constructor() {
+    this.setupDependencies();
+  }
+
+  public static getInstance(): DIContainer {
+    if (!DIContainer.instance) {
+      DIContainer.instance = new DIContainer();
+    }
+    return DIContainer.instance;
+  }
+
+  private setupDependencies(): void {
+    // infrastructure
+    const dbConnection = DatabaseConnection.getInstance();
+    const pool = dbConnection.getPool();
+    this.register("pool", pool);
+
+    // run migrations
+    const migrations = new MigrationRunner(pool).runMigrations();
+
+    // repositories
+    const userRepository = new PostgreSQLUserRepository(pool);
+    this.register("userRepository", userRepository);
+    const courseRepository = new PostgreSQLCourseRepository(pool);
+    this.register("courseRepository", courseRepository);
+    //   Services
+
+    const passwordHasher = new BcryptPasswordHasher();
+    const idGenerator = new UUIDGenerator();
+    const userDomainService = new UserDomainService(userRepository);
+
+    this.register("passwordHasher", passwordHasher);
+    this.register("idGenerator", idGenerator);
+    this.register("userDomainService", userDomainService);
+
+    // use cases
+    const createUserUseCase = new CreateUserUseCase(
+      userRepository,
+      userDomainService,
+      passwordHasher,
+      idGenerator
+    );
+    const getUserUseCase = new GetUserUseCase(userRepository);
+    const loginUserUseCase = new LoginUserUseCase(
+      userRepository,
+      passwordHasher
+    );
+    const createCourseUseCase = new CreateCourseUseCase(
+      courseRepository,
+      idGenerator
+    );
+    const getUserCourseUseCase = new GetCourseUserCase(courseRepository);
+    const getCourse = new GetCourse(courseRepository);
+    const deleteUserCourse = new DeleteCourseUseCase(courseRepository);
+
+    this.register("createUserUseCase", createUserUseCase);
+    this.register("getUserUseCase", getUserUseCase);
+    this.register("createCourseUseCase", createCourseUseCase);
+    this.register("getCourse", getCourse);
+    this.register("deleteUserCourse", deleteUserCourse);
+
+    // Validators
+    const userValidator = new UserValidator();
+    const courseValidator = new CourseValidator();
+    this.register("userValidator", userValidator);
+    this.register("courseValidator", courseValidator);
+
+    //  controllers
+    const userController = new UserController(
+      createUserUseCase,
+      getUserUseCase,
+      userValidator,
+      loginUserUseCase
+    );
+    const courseController = new CourseController(
+      createCourseUseCase,
+      courseValidator,
+      userValidator,
+      getUserCourseUseCase,
+      getCourse,
+      deleteUserCourse
+    );
+    this.register("userController", userController);
+    this.register("courseController", courseController);
+  }
+
+  public register<T>(name: string, dependencies: T): void {
+    this.dependencies.set(name, dependencies);
+  }
+
+  public get<T>(name: string): T {
+    const dependency = this.dependencies.get(name);
+    if (!dependency) {
+      throw new Error(`Dependency ${name} not found`);
+    }
+    return dependency;
+  }
+}

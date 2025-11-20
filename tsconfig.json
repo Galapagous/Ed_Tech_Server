@@ -1,0 +1,66 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "lib": ["ES2020"],
+//     "module": "commonjs",
+//     "moduleResolution": "node",
+//     "rootDir": "./src",
+//     "outDir": "./dist",
+//     "removeComments": true,
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "resolveJsonModule": true,
+//     "experimentalDecorators": true,
+//     "emitDecoratorMetadata": true,
+//     "baseUrl": "./",
+//     "paths": {
+//       "@/*": ["src/*"],
+//       "@domain/*": ["src/domain/*"],
+//       "@application/*": ["src/application/*"],
+//       "@infrastructure/*": ["src/infrastructure/*"],
+//       "@presentation/*": ["src/presentation/*"]
+//     }
+//   },
+//   "include": ["src/**/*"],
+//   "exclude": ["node_modules", "dist", "**/*.test.ts"]
+// }
+
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020"],
+    "types": ["node", "jest"], // This is already good—applies to included files
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "removeComments": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@domain/*": ["src/domain/*"],
+      "@application/*": ["src/application/*"],
+      "@infrastructure/*": ["src/infrastructure/*"],
+      "@presentation/*": ["src/presentation/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "**/*.test.ts", // Fixed: Added dot for *.test.ts (matches your Jest testMatch)
+    "**/*.spec.ts" // Optional: Cover spec files too
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+    // Removed "**/*.test.ts"—tests are now included and type-checked
+  ]
+}
