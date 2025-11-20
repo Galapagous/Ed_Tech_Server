@@ -16,6 +16,10 @@ import { GetCourseUserCase } from "@/application/use-case/course-case/GetCourseU
 import { MigrationRunner } from "../database/migrations/runMigration";
 import { GetCourse } from "@/application/use-case/course-case/GetCourse";
 import { DeleteCourseUseCase } from "@/application/use-case/doc-case/deleteDocUseCase";
+import { PostgesSQLDocrepository } from "../repositories/PostgreSQLDocRepository";
+import { CloudinaryService } from "../storage/cloudinaryStorage";
+import { CreateDocUseCase } from "@/application/use-case/doc-case/createDocUseCase";
+import { DocController } from "@/presentation/controllers/DocController";
 
 export class DIContainer {
   private static instance: DIContainer;
@@ -46,17 +50,21 @@ export class DIContainer {
     this.register("userRepository", userRepository);
     const courseRepository = new PostgreSQLCourseRepository(pool);
     this.register("courseRepository", courseRepository);
+    const docRepository = new PostgesSQLDocrepository(pool);
+    this.register("docRepository", docRepository);
     //   Services
 
     const passwordHasher = new BcryptPasswordHasher();
     const idGenerator = new UUIDGenerator();
     const userDomainService = new UserDomainService(userRepository);
+    const cloudinaryService = new CloudinaryService();
 
     this.register("passwordHasher", passwordHasher);
     this.register("idGenerator", idGenerator);
     this.register("userDomainService", userDomainService);
+    this.register("cloudinaryService", cloudinaryService);
 
-    // use cases
+    // ============== use cases ==============
     const createUserUseCase = new CreateUserUseCase(
       userRepository,
       userDomainService,
@@ -75,26 +83,33 @@ export class DIContainer {
     const getUserCourseUseCase = new GetCourseUserCase(courseRepository);
     const getCourse = new GetCourse(courseRepository);
     const deleteUserCourse = new DeleteCourseUseCase(courseRepository);
+    const createDocUseCase = new CreateDocUseCase(
+      docRepository,
+      idGenerator,
+      cloudinaryService
+    );
 
     this.register("createUserUseCase", createUserUseCase);
     this.register("getUserUseCase", getUserUseCase);
     this.register("createCourseUseCase", createCourseUseCase);
     this.register("getCourse", getCourse);
     this.register("deleteUserCourse", deleteUserCourse);
+    this.register("createDocUseCase", createDocUseCase);
 
-    // Validators
+    // ============== Validators ==============
     const userValidator = new UserValidator();
     const courseValidator = new CourseValidator();
     this.register("userValidator", userValidator);
     this.register("courseValidator", courseValidator);
 
-    //  controllers
+    //  ============== controllers ==============
     const userController = new UserController(
       createUserUseCase,
       getUserUseCase,
       userValidator,
       loginUserUseCase
     );
+    this.register("userController", userController);
     const courseController = new CourseController(
       createCourseUseCase,
       courseValidator,
@@ -103,8 +118,9 @@ export class DIContainer {
       getCourse,
       deleteUserCourse
     );
-    this.register("userController", userController);
     this.register("courseController", courseController);
+    const docController = new DocController(createDocUseCase, userValidator);
+    this.register("docController", docController);
   }
 
   public register<T>(name: string, dependencies: T): void {
