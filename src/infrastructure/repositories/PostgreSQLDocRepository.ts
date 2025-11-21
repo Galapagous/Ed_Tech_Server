@@ -28,10 +28,9 @@ export class PostgesSQLDocrepository implements DocRepository {
   async findByCourseId(courseid: string): Promise<Doc[] | null> {
     const query = `SELECT
       id,
-      url,
-      course_id
+      url
       FROM docs
-      WHERE courseId = $1
+      WHERE course_id = $1
       `;
     const value = [courseid];
     const result = await this.pool.query(query, value);

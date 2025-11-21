@@ -20,6 +20,7 @@ import { PostgesSQLDocrepository } from "../repositories/PostgreSQLDocRepository
 import { CloudinaryService } from "../storage/cloudinaryStorage";
 import { CreateDocUseCase } from "@/application/use-case/doc-case/createDocUseCase";
 import { DocController } from "@/presentation/controllers/DocController";
+import { GetDocByCourse } from "@/application/use-case/doc-case/getCourseDocUseCase";
 
 export class DIContainer {
   private static instance: DIContainer;
@@ -88,6 +89,7 @@ export class DIContainer {
       idGenerator,
       cloudinaryService
     );
+    const getDocByCourse = new GetDocByCourse(docRepository);
 
     this.register("createUserUseCase", createUserUseCase);
     this.register("getUserUseCase", getUserUseCase);
@@ -116,7 +118,8 @@ export class DIContainer {
       userValidator,
       getUserCourseUseCase,
       getCourse,
-      deleteUserCourse
+      deleteUserCourse,
+      getDocByCourse
     );
     this.register("courseController", courseController);
     const docController = new DocController(createDocUseCase, userValidator);
