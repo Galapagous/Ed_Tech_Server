@@ -1,21 +1,22 @@
-import { createDoc, DocDTO } from "@/application/dto/DocDTO";
+// application/use-case/doc-case/createDocUseCase.ts
+import { DocRepository } from "@/domain/repositories/DocRepository";
 import { IdGenerator } from "@/application/interfaces/IdGenerator";
 import { Doc } from "@/domain/entities/doc";
-import { DocRepository } from "@/domain/repositories/DocRepository";
-import { CloudinaryService } from "@/infrastructure/storage/cloudinaryStorage";
+import { ICloudStorage } from "@/domain/entities/cloudinary";
 
 export class CreateDocUseCase {
   constructor(
     private docRepository: DocRepository,
     private idGenerator: IdGenerator,
-    private CloudService: CloudinaryService
+    private cloudStorage: ICloudStorage
   ) {}
 
-  async execute(dto: createDoc): Promise<DocDTO> {
+  async execute(file: Express.Multer.File, courseId: string): Promise<Doc> {
     const id = this.idGenerator.generate();
-    const docUrl = await this.CloudService.upload(dto.url);
-    const doc = Doc.create(docUrl, dto.courseId, id);
-    const savedDoc = await this.docRepository.save(doc);
-    return savedDoc;
+
+    const uploadResult = await this.cloudStorage.upload(file);
+    const doc = Doc.create(uploadResult.secure_url, courseId, id);
+
+    return await this.docRepository.save(doc);
   }
 }
