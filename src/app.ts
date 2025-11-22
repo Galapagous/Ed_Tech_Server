@@ -35,6 +35,7 @@ export function createApp(): express.Application {
   app.use("/api/auth", createUserRoutes(userController));
   app.use("/api/course", createCourseRoute(courseController));
   app.use("/api/doc", createDocRoute(docController));
+  // app.use("/quiz")
 
   app.use("/", (req, res) => {
     res.send("Hello from backend");

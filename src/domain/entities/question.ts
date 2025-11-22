@@ -1,6 +1,7 @@
 interface IOptions {
   id: string;
   value: string;
+  question_id: string;
 }
 export class Question {
   constructor(
