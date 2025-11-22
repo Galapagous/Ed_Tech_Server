@@ -14,7 +14,7 @@ export class CloudinaryService implements ICloudStorage {
   async upload(file: Express.Multer.File): Promise<UploadResult> {
     return new Promise((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
-        { folder: "ed-tech-ai/docs", resource_type: "auto" },
+        { folder: "ed-tech-ai/docs", resource_type: "raw" },
         (error, result) => {
           if (error) {
             console.log("error --->", error);
