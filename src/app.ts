@@ -3,11 +3,12 @@ import cors from "cors";
 import helmet from "helmet";
 import { DIContainer } from "./infrastructure/container/DIContainer";
 import { createUserRoutes } from "./presentation/routes/userRoutes";
-
 import { errorMiddleware } from "./presentation/middleware/errorMiddleware";
 import { UserController } from "./presentation/controllers/UserController";
 import { createCourseRoute } from "./presentation/routes/courseRoute";
 import { CourseController } from "./presentation/controllers/CourseController";
+import { DocController } from "./presentation/controllers/DocController";
+import { createDocRoute } from "./presentation/routes/docRoute";
 
 export function createApp(): express.Application {
   const app = express();
@@ -30,8 +31,11 @@ export function createApp(): express.Application {
 
   const userController = container.get<UserController>("userController");
   const courseController = container.get<CourseController>("courseController");
+  const docController = container.get<DocController>("docController");
   app.use("/api/auth", createUserRoutes(userController));
   app.use("/api/course", createCourseRoute(courseController));
+  app.use("/api/doc", createDocRoute(docController));
+
   app.use("/", (req, res) => {
     res.send("Hello from backend");
   });

@@ -1,4 +1,5 @@
-import { ICloudStorage } from "@/domain/entities/cloudinary";
+// src/infrastructure/storage/CloudinaryService.ts
+import { ICloudStorage, UploadResult } from "@/domain/entities/cloudinary";
 import { v2 as cloudinary } from "cloudinary";
 
 export class CloudinaryService implements ICloudStorage {
@@ -10,8 +11,22 @@ export class CloudinaryService implements ICloudStorage {
     });
   }
 
-  async upload(file: any): Promise<string> {
-    const result = await cloudinary.uploader.upload(file.path);
-    return result.secure_url;
+  async upload(file: Express.Multer.File): Promise<UploadResult> {
+    return new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        { folder: "ed-tech-ai/docs", resource_type: "raw" },
+        (error, result) => {
+          if (error) {
+            console.log("error --->", error);
+            return reject(error);
+          }
+          resolve({
+            secure_url: result!.secure_url,
+            public_id: result!.public_id,
+          });
+        }
+      );
+      stream.end(file.buffer);
+    });
   }
 }

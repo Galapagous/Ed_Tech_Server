@@ -2,6 +2,7 @@ import { CreateCourseUseCase } from "@/application/use-case/course-case/CreateCo
 import { GetCourse } from "@/application/use-case/course-case/GetCourse";
 import { GetCourseUserCase } from "@/application/use-case/course-case/GetCourseUseCase";
 import { DeleteCourseUseCase } from "@/application/use-case/doc-case/deleteDocUseCase";
+import { GetDocByCourse } from "@/application/use-case/doc-case/getCourseDocUseCase";
 import { CourseValidator } from "@/application/validators/CourseValidator";
 import { UserValidator } from "@/application/validators/UserValidator";
 import { NextFunction, Request, Response } from "express";
@@ -13,7 +14,8 @@ export class CourseController {
     private userValidator: UserValidator,
     private getUserCourses: GetCourseUserCase,
     private getCourse: GetCourse,
-    private deleteUserCourse: DeleteCourseUseCase
+    private deleteUserCourse: DeleteCourseUseCase,
+    private getDocByCourse: GetDocByCourse
   ) {}
 
   createCourse = async (
@@ -72,11 +74,11 @@ export class CourseController {
         });
       }
       // ---  grab corresponding document attached ----
-
+      const docs = await this.getDocByCourse.execute((await course).id);
       // ---  grab total questions in course ----
       res.status(200).json({
         status: true,
-        data: course,
+        data: { ...course, docs },
         message: "Course fetch successfully",
       });
     } catch (error) {
