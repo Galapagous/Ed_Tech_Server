@@ -247,7 +247,7 @@ export interface IQuestion {
   difficulty?: string;
 }
 
-enum AIProvider {
+export enum AIProvider {
   OPENAI = "openai",
   GEMINI = "gemini",
 }

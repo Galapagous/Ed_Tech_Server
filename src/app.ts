@@ -9,6 +9,8 @@ import { createCourseRoute } from "./presentation/routes/courseRoute";
 import { CourseController } from "./presentation/controllers/CourseController";
 import { DocController } from "./presentation/controllers/DocController";
 import { createDocRoute } from "./presentation/routes/docRoute";
+import { QuestionController } from "./presentation/controllers/QuestionController";
+import { createQuestionRoute } from "./presentation/routes/questionRoute";
 
 export function createApp(): express.Application {
   const app = express();
@@ -32,9 +34,12 @@ export function createApp(): express.Application {
   const userController = container.get<UserController>("userController");
   const courseController = container.get<CourseController>("courseController");
   const docController = container.get<DocController>("docController");
+  const questionController =
+    container.get<QuestionController>("questionController");
   app.use("/api/auth", createUserRoutes(userController));
   app.use("/api/course", createCourseRoute(courseController));
   app.use("/api/doc", createDocRoute(docController));
+  app.use("api/question", createQuestionRoute(questionController));
   // app.use("/quiz")
 
   app.use("/", (req, res) => {

@@ -33,8 +33,8 @@ export class PostgreSQLCourseRepository implements CourseRepository {
         WHERE id = $1
         `;
     const result = await this.pool.query(query, [id]);
-    if ((await result).rows.length === 0) return null;
-    return (await result).rows[0];
+    if (result.rows.length === 0) return null;
+    return result.rows[0];
   }
 
   async findByOwner(id: string): Promise<Course[] | null> {
