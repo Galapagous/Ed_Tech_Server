@@ -5,8 +5,8 @@ export class Option {
     public readonly question_id: string
   ) {}
 
-  public create(id: string, value: string, question_id: string) {
+  public static create(id: string, value: string, question_id: string) {
     if (!id || !value || !question_id) throw new Error("Missing fields");
-    return new Option(this.id, this.value, this.question_id);
+    return new Option(id, value, question_id);
   }
 }

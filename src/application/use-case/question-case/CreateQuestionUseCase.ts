@@ -1,34 +1,67 @@
-import { CreateCourse } from "@/application/dto/CourseDTOs";
-import {
-  CreateQuestion,
-  QuestionResponseDTO,
-} from "@/application/dto/QuestionDTO";
 import { IdGenerator } from "@/application/interfaces/IdGenerator";
-import { IDoc } from "@/domain/entities/doc";
+import { Option } from "@/domain/entities/option";
+import { Question } from "@/domain/entities/question";
 import { DocRepository } from "@/domain/repositories/DocRepository";
-import { QuestionRepository } from "@/domain/repositories/QuestionRepository";
+import {
+  OptionRepository,
+  QuestionRepository,
+} from "@/domain/repositories/QuestionRepository";
+import {
+  AiService,
+  IOption,
+  IQuestion,
+} from "@/infrastructure/services/AIGenerator";
 import { generatePDF } from "@/infrastructure/services/PDFParser";
 
 export class CreateQuestionUseCase {
   constructor(
     private questionRepository: QuestionRepository,
+    private optionRepository: OptionRepository,
     private idGenerator: IdGenerator,
-    private docRepository: DocRepository
+    private docRepository: DocRepository,
+    private aiGenerator: AiService
   ) {}
 
-  async execute(dto: string): Promise<QuestionResponseDTO> {
-    const id = this.idGenerator.generate();
-    const docs: IDoc[] | null = await this.docRepository.findByCourseId(dto);
-    // pdf parser to get pdf doc
-    if (docs === null) throw new Error("No document found, upload to continue");
-    const pdf = await docs.map((doc: IDoc) => generatePDF(doc.url));
-    // generate quest and ans from ai prompt
+  async execute(dto: string): Promise<any> {
+    const docs = await this.docRepository.findByCourseId(dto);
 
-    console.log("pdf documents -->", pdf);
-    // save options with questionId
+    if (!docs) return [];
 
-    // save quest with course id and docId
+    const result = await Promise.all(
+      docs.map(async (doc) => {
+        const pdfText = await generatePDF(doc.url);
+        const questions = await this.aiGenerator.generateQuestion(pdfText);
+        if (questions === undefined)
+          throw new Error("Error Generating question");
+        return Promise.all(
+          questions?.questions?.map(async (question: IQuestion) => {
+            const qId = this.idGenerator.generate();
 
-    return this.questionRepository.save(questions);
+            // Create question
+            const newQuestion = Question.create(
+              qId,
+              question?.answer,
+              doc?.courseId,
+              doc?.id,
+              question?.explanation,
+              question?.question
+            );
+
+            // Save Question
+            const savedQuestion =
+              await this.questionRepository.save(newQuestion);
+
+            // create option
+            const newOption = question?.options?.map(async (option) => {
+              const newOption = Option.create(option.id, option.value, qId);
+              const savedOption = await this.optionRepository.save(newOption);
+            });
+            return { ...savedQuestion, option: newOption };
+          })
+        );
+      })
+    );
+
+    return result;
   }
 }
