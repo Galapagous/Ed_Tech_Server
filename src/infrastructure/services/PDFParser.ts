@@ -32,7 +32,7 @@ export const generatePDF = async (url: string): Promise<string> => {
     // const pdfData = await new PDFParse(buffer);
     // console.log("📄 PDF parsed. Extracted text length:", pdfData.text.length);
 
-    const parser = new PDFParse(url);
+    const parser = new PDFParse({ url });
     const pdfData = await parser.getText();
     return pdfData.text.trim();
   } catch (error: any) {

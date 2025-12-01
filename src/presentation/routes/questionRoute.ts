@@ -6,7 +6,8 @@ export function createQuestionRoute(
 ): Router {
   const router = Router();
 
-  router.post("/:id", questionController.createQuestion);
+  router.post("/", questionController.createQuestion);
+  router.get("/:id", questionController.getQuestions);
 
   return router;
 }

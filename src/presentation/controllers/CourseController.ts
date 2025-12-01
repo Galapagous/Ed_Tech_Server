@@ -88,11 +88,8 @@ export class CourseController {
 
   deleteCourse = async (req: Request, res: Response): Promise<void> => {
     const id = req.params.id;
-    console.log("1");
     const owner = this.userValidator.validateToken(req, res);
-    console.log("2");
     const course = await this.getCourse.execute(id);
-    console.log("3");
     if (course.ownerid !== owner) {
       res.status(401).json({
         status: false,
@@ -100,7 +97,6 @@ export class CourseController {
       });
       return;
     }
-    console.log("4");
     await this.deleteUserCourse.execute(id);
     res.status(200).json({
       status: true,

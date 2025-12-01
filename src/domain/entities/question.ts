@@ -14,26 +14,24 @@ export class Question {
     public readonly docId: string
   ) {}
 
-  public static create(
-    id: string,
-    question: string,
-    // options: IOptions[],
-    answer: string,
-    explanation: string,
-    courseId: string,
-    docId: string
-  ) {
-    if (!question || !answer || !courseId || docId || !id) {
+  public static create({
+    id,
+    question,
+    answer,
+    explanation,
+    courseId,
+    docId,
+  }: {
+    id: string;
+    question: string;
+    answer: string;
+    explanation: string;
+    courseId: string;
+    docId: string;
+  }): Question {
+    if (!question || !answer || !courseId || !docId || !id) {
       throw new Error("Missing fields");
     }
-    return new Question(
-      id,
-      question,
-      // this.options,
-      answer,
-      explanation,
-      courseId,
-      docId
-    );
+    return new Question(id, question, answer, explanation, courseId, docId);
   }
 }

@@ -1,0 +1,124 @@
+```json
+[
+  {
+    "question": "According to the study's main findings, what is the overall relationship between corruption perception, institutional quality, and the performance of listed companies in Nigeria?",
+    "options": [
+      { "id": "A", "value": "Both corruption perception and weak institutional quality are negatively related to market value (TobinQ) and accounting value (ROA)." },
+      { "id": "B", "value": "Corruption perception positively influences firm performance, while institutional quality has a negative impact." },
+      { "id": "C", "value": "Neither corruption perception nor institutional quality show a significant relationship with firm performance in Nigeria." },
+      { "id": "D", "value": "Corruption perception primarily affects market value, whereas institutional quality only affects accounting value performance." }
+    ],
+    "correctIndex": "A",
+    "explanation": "The abstract states: 'We find that corruption is negatively related to the market value (TobinQ) and accounting value performance (ROA). Similarly, institutional quality is negatively related to TobinQ and ROA. The results suggest that corruption and institutional quality weaken the market and accounting performance firms in Nigeria.' This directly supports option A.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "The study compared the impact of corruption and institutional quality on financial versus non-financial firms. What key distinction did it identify regarding their performance?",
+    "options": [
+      { "id": "A", "value": "Financial firms are more vulnerable to corruption, while non-financial firms are more affected by weak institutional environments." },
+      { "id": "B", "value": "Corruption and weak institutional environments tend to impair the performance of non-financial firms more, due to less regulatory oversight compared to financial institutions." },
+      { "id": "C", "value": "Financial institutions show a positive influence from corruption perception, suggesting a 'grease the wheels' effect, unlike non-financial firms." },
+      { "id": "D", "value": "Both types of firms are equally affected by corruption and institutional quality, with no significant difference observed." }
+    ],
+    "correctIndex": "B",
+    "explanation": "The abstract and conclusion state: 'We find that both corruption and weak institutional environment tend to impair the market and accounting-based performance of non-financial firms, which could be traced to the less regulatory body in such institution compared to the financial institution.' This directly supports option B.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "The study utilized two different indices for corruption perception: the Transparency International Corruption Perception Index (CPI) and the World Bank Control of Corruption Index (CCI). How were these indices specifically adapted for consistency with the study's statistical model?",
+    "options": [
+      { "id": "A", "value": "Both CPI and CCI were rescaled to range from 0 to 100, with higher values consistently indicating lower corruption." },
+      { "id": "B", "value": "CPI was reversed to indicate higher corruption with higher values, while CCI was rescaled and re-geared to also show higher corruption with higher values." },
+      { "id": "C", "value": "CPI was kept in its original 0-100 range (lower value = higher corruption), but CCI was reversed to match this interpretation." },
+      { "id": "D", "value": "Both indices were used in their original formats without any rescaling or reversal to maintain data integrity." }
+    ],
+    "correctIndex": "B",
+    "explanation": "Section 2.2.2 'Corruption perception' states: 'Recently, Transparency International has rescaled the Index ranging 0–100 with lower value depicting higher corruption. For consistency with the study model, we reverse the Index with a higher value indicating sophisticated corruption.' And for CCI: 'To avoid inconsistency with the statistical model, we rescale the Index and re-gear the index ranging 0–10 with the lower value indicating minimized corruption and vice-versa.' This means higher values for both adapted indices indicate higher corruption, supporting option B.",
+    "difficulty": "hard"
+  },
+  {
+    "question": "Which of the following statements accurately describes the study's findings regarding the individual components of institutional quality and their relationship to firm performance (market and accounting value)?",
+    "options": [
+      { "id": "A", "value": "All six governance indicators (Control of Corruption, Political instability and violence, Government effectiveness, Regulatory Quality, Rule of Law, Voice and Accountability) were positively related to firm performance." },
+      { "id": "B", "value": "Political instability and violence, government effectiveness, rule of law, and voice and accountability were positively related to performance, while regulatory quality was negatively related." },
+      { "id": "C", "value": "Only Regulatory Quality was found to have a significant impact on firm performance, being negatively related to both market and accounting value." },
+      { "id": "D", "value": "The aggregated measure of institutional quality showed a positive relationship, but individual components largely showed no significant impact." }
+    ],
+    "correctIndex": "B",
+    "explanation": "Section 1. Introduction, paragraph 9 states: 'Besides, we find that the governance indicators of political instability and violence, gov-ernment effectiveness, rule of law, voice and accountability except for regulatory quality, other institutional environment indices are positively related to both market and accounting-based performance.' This is reiterated in Section 3.2.2. This matches option B.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "The study explicitly mentions two prominent strands of literature concerning corruption globally. Which of these theoretical perspectives does the study's primary finding *fail to support*?",
+    "options": [
+      { "id": "A", "value": "The view that corruption is an impediment to economic growth." },
+      { "id": "B", "value": "The 'grease the wheel' hypothesis, which suggests corruption can positively influence firm development by speeding up business processes." },
+      { "id": "C", "value": "The literature asserting a strong negative connection between corruption and economic growth." },
+      { "id": "D", "value": "The perspective that corruption hampers foreign direct investment and increases operational costs." }
+    ],
+    "correctIndex": "B",
+    "explanation": "Section 1. Introduction, paragraph 10 describes two strands: one that 'assesses corruption as an impediment to economic growth' and another that 'term corruption as 'grease the wheel' supports the postulation that corruption tends to speed up the wheels of business'. Section 3.2.1 'Corruption and performance' states: 'Therefore, our result fails to support the 'grease the wheels' claims of corruption and performance of firms.' This directly supports option B.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Which of the following firm-level control variables showed a consistent *negative and significant* relationship with market value (Tobin Q) across the study's model specifications?",
+    "options": [
+      { "id": "A", "value": "Firm age (lnage)" },
+      { "id": "B", "value": "Market leverage (LEV)" },
+      { "id": "C", "value": "Firm size (lnasset)" },
+      { "id": "D", "value": "Domestic Credit to Private Sector by banks (DC)" }
+    ],
+    "correctIndex": "C",
+    "explanation": "In Section 3.2.1 'Corruption and performance', it states: 'We find that all firm-level measures except firm age are negatively and significantly related to market value. Firm size is a negative and significant predictor of Tobin Q.' Table 5, models 1-3 also show 'lnasset' coefficients as negative and significant or trending towards it for TobinQ. Option D (Domestic Credit) is a country-level variable, not firm-level. Firm age is positive and significant. Market leverage is not consistently significant and negative.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "What primary statistical method did the researchers employ for their main analysis to examine the effect of corruption perception and institutional quality on firm performance?",
+    "options": [
+      { "id": "A", "value": "Ordinary Least Squares (OLS) regression." },
+      { "id": "B", "value": "Principal Component Analysis (PCA)." },
+      { "id": "C", "value": "Generalized Method of Moment (GMM)." },
+      { "id": "D", "value": "Fixed Effect or Random Effect models." }
+    ],
+    "correctIndex": "C",
+    "explanation": "The abstract states: 'We then use the Generalized Method of Moment (GMM) for the analysis.' Section 2.3 'Model' also confirms: 'We estimate the influence of corruption perception and institutional quality on the performance of Nigerian firms via a dynamic panel data estimator... We use the One-Step Difference Generalized Method of Moment estimator for the study empirical analysis.' PCA was used to condense indicators for institutional quality, not as the primary analysis method.",
+    "difficulty": "easy"
+  },
+  {
+    "question": "The study utilized a specific timeframe and sample size. What were these parameters for the listed companies in Nigeria?",
+    "options": [
+      { "id": "A", "value": "Data for 169 listed companies from 2012–2017." },
+      { "id": "B", "value": "Extracted data for 135 listed companies with timeframe 2013–2017." },
+      { "id": "C", "value": "A sample of 810 firm-year observations from 2013–2017, covering all listed companies." },
+      { "id": "D", "value": "Data for 135 listed companies spanning 2012–2018." }
+    ],
+    "correctIndex": "B",
+    "explanation": "The abstract states: 'We examine the effect of corruption perception and institutional quality on the performance of firms based on the extracted data for 135 listed companies in Nigeria with timeframe 2013–2017.' Section 2.1 'Sample' elaborates: 'The study draws a set of firm-level and economic data from a sample of 810 firm-year observations for 135 listed companies on Nigerian Stock Exchange... The data ranges from the period of 2012–2017'. The 2013-2017 timeframe is explicitly mentioned in the abstract for the analysis. The sample section later mentions 2012-2017. However, the initial statement in the abstract, and conclusion aligns with 2013-2017. The 2012-2017 is the data range, but for 135 listed companies the *timeframe* of the actual examination is specified as 2013-2017. Given the options, 135 companies and 2013-2017 is the most accurate summary of the *examined timeframe* in the key findings.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "What was the stated primary policy implication of the study's findings for Nigeria?",
+    "options": [
+      { "id": "A", "value": "Nigeria should focus solely on improving government effectiveness, as other institutional indicators are less critical." },
+      { "id": "B", "value": "The government needs to reduce regulations for non-financial institutions to spur economic growth." },
+      { "id": "C", "value": "Nigeria requires more effective and strong proactive mechanisms to curb corruption practices and weak institutional quality to enhance global competitiveness." },
+      { "id": "D", "value": "Policymakers should encourage firms to participate in some corrupt activities to 'grease the wheels' of business in specific sectors." }
+    ],
+    "correctIndex": "C",
+    "explanation": "The conclusion section states: 'This study has policy implications for regulators and stakeholders. Nigeria is likely to require more effective and strong mechanisms pro-active to curb the corruption practices amidst the public officials and politicians while enhancing the institutional environment. This tends to increase the global competitiveness of Nigerians firms in the global market, which in turn promotes their performance.' This directly supports option C.",
+    "difficulty": "easy"
+  },
+  {
+    "question": "In validating the Generalized Method of Moment (GMM) estimator, what specific autocorrelation tests were employed, and what were the expected outcomes for these tests to confirm the estimator's applicability?",
+    "options": [
+      { "id": "A", "value": "First-Order [AR(1)] and Second-Order [AR(2)] tests; expecting to reject AR(1) and not reject AR(2)." },
+      { "id": "B", "value": "Sargan's test and Hansen's J test; expecting to reject both for valid instruments." },
+      { "id": "C", "value": "Only the First-Order [AR(1)] test; expecting to not reject the null hypothesis." },
+      { "id": "D", "value": "Only the Second-Order [AR(2)] test; expecting to reject the null hypothesis." }
+    ],
+    "correctIndex": "A",
+    "explanation": "Section 2.3 'Model' states: 'Two autocorrelation tests, among other diagnostics, are expected to confirm the applicability of the Difference GMM estimator namely: First Order [AR (1)] and Second-Order [AR (2)] autocorrelation tests. Thus, for the Arellano-Bond GMM estimator to be valid, we expect to reject the null hypothesis for the [AR (1)] test while we expect no to reject the null hypothesis for [AR (2)].' This directly supports option A.",
+    "difficulty": "hard"
+  }
+]
+```

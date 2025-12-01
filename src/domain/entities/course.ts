@@ -10,7 +10,8 @@ export class Course {
     public readonly description: string,
     public readonly createdAt: Date,
     public readonly updatedAt: Date,
-    public readonly ownerid: string
+    public readonly ownerid: string,
+    public readonly filePath: string
   ) {}
 
   // public update(doc: IDoc): Course {
@@ -31,8 +32,17 @@ export class Course {
     id: string,
     title: string,
     description: string,
-    ownerId: string
+    ownerId: string,
+    filePath: string | null
   ): Course {
-    return new Course(id, title, description, new Date(), new Date(), ownerId);
+    return new Course(
+      id,
+      title,
+      description,
+      new Date(),
+      new Date(),
+      ownerId,
+      filePath || ""
+    );
   }
 }

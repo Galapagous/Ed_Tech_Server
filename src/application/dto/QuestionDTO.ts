@@ -5,7 +5,7 @@ export interface CreateQuestion {
 export interface QuestionResponseDTO {
   id: string;
   question: string;
-  options: string[];
+  // options: string[];
   answer: string;
   courseId: string;
   docId: string;

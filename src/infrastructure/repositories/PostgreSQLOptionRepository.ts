@@ -6,7 +6,7 @@ export class PostgreSQLOptionRepository implements OptionRepository {
   constructor(private pool: Pool) {}
 
   async save(option: Option): Promise<Option> {
-    const query = `INSERT INTO options (id, value, question_id)
+    const query = `INSERT INTO options (id, value, questionId)
         VALUES($1, $2, $3)
         RETURNING *`;
     const values = [option.id, option.value, option.question_id];
@@ -18,9 +18,9 @@ export class PostgreSQLOptionRepository implements OptionRepository {
     const query = `SELECT
       id,
       value,
-      question_id
+      questionId
       FROM options
-      WHERE question_id = $1
+      WHERE questionId = $1
       `;
     const result = await this.pool.query(query, [id]);
     if (result.rows[0].length === 0) return null;

@@ -11,7 +11,13 @@ export class CreateCourseUseCase {
 
   async execute(dto: CreateCourse): Promise<CourseResponseDTO> {
     const id = this.idGenerator.generate();
-    const course = Course.create(id, dto.title, dto.description, dto.ownerId);
+    const course = Course.create(
+      id,
+      dto.title,
+      dto.description,
+      dto.ownerId,
+      ""
+    );
     const savedCourse = await this.courseRepository.save(course);
     return savedCourse;
   }
