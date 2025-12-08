@@ -8,6 +8,7 @@ export function createQuestionRoute(
 
   router.post("/", questionController.createQuestion);
   router.get("/:id", questionController.getQuestions);
+  router.get("/quiz/:id", questionController.getQuestionAndOptions);
 
   return router;
 }

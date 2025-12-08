@@ -57,7 +57,6 @@ export class CreateQuestionUseCase {
         AI_FOLDER_PATH,
         `${course.filePath}.txt`
       );
-
       const dataString = await fs.promises.readFile(url, "utf-8");
 
       let cleaned = dataString
@@ -68,8 +67,6 @@ export class CreateQuestionUseCase {
       try {
         questions = await JSON.parse(cleaned);
       } catch (err) {
-        console.log("JSON parse error:", err);
-        console.log("Cleaned string:", cleaned);
         throw new Error("Invalid JSON format in AI file");
       }
     }
@@ -91,7 +88,7 @@ export class CreateQuestionUseCase {
         const qId = this.idGenerator.generate();
 
         // Create and save question
-        const newQuestion = Question.create({
+        const newQuestion = await Question.create({
           id: qId,
           question: question?.question,
           answer: question?.correctIndex,
