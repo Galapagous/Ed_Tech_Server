@@ -21,6 +21,15 @@ import { CloudinaryService } from "../storage/cloudinaryStorage";
 import { CreateDocUseCase } from "@/application/use-case/doc-case/createDocUseCase";
 import { DocController } from "@/presentation/controllers/DocController";
 import { GetDocByCourse } from "@/application/use-case/doc-case/getCourseDocUseCase";
+import { PostgreSQLQuestionRepository } from "../repositories/PostgreSQLQuestionRepository";
+import { PostgreSQLOptionRepository } from "../repositories/PostgreSQLOptionRepository";
+import { AIProvider, AiService } from "../services/AIGenerator";
+import dotenv from "dotenv";
+import { CreateQuestionUseCase } from "@/application/use-case/question-case/CreateQuestionUseCase";
+import { QuestionController } from "@/presentation/controllers/QuestionController";
+import { GetCourseQuestionUseCase } from "@/application/use-case/question-case/GetCourseQuestionUseCase";
+import { GetQuestionAndOptionUseCase } from "@/application/use-case/question-case/GetQuestionAndOptionUseCase";
+dotenv.config();
 
 export class DIContainer {
   private static instance: DIContainer;
@@ -39,6 +48,9 @@ export class DIContainer {
 
   private setupDependencies(): void {
     // infrastructure
+    const aiProvider =
+      AIProvider.GEMINI || AIProvider.OPENAI || AIProvider.HUGGINGFACE;
+    const geminiKey: string = process?.env?.GEMINI_API_KEY as string;
     const dbConnection = DatabaseConnection.getInstance();
     const pool = dbConnection.getPool();
     this.register("pool", pool);
@@ -53,17 +65,23 @@ export class DIContainer {
     this.register("courseRepository", courseRepository);
     const docRepository = new PostgesSQLDocrepository(pool);
     this.register("docRepository", docRepository);
+    const questionRepository = new PostgreSQLQuestionRepository(pool);
+    this.register("questionRepository", questionRepository);
+    const optionRepository = new PostgreSQLOptionRepository(pool);
+    this.register("optionRepository", optionRepository);
     //   Services
 
     const passwordHasher = new BcryptPasswordHasher();
     const idGenerator = new UUIDGenerator();
     const userDomainService = new UserDomainService(userRepository);
     const cloudinaryService = new CloudinaryService();
+    const aiService = new AiService(geminiKey, aiProvider);
 
     this.register("passwordHasher", passwordHasher);
     this.register("idGenerator", idGenerator);
     this.register("userDomainService", userDomainService);
     this.register("cloudinaryService", cloudinaryService);
+    this.register("AIService", aiService);
 
     // ============== use cases ==============
     const createUserUseCase = new CreateUserUseCase(
@@ -77,6 +95,7 @@ export class DIContainer {
       userRepository,
       passwordHasher
     );
+    // === ===
     const createCourseUseCase = new CreateCourseUseCase(
       courseRepository,
       idGenerator
@@ -84,12 +103,30 @@ export class DIContainer {
     const getUserCourseUseCase = new GetCourseUserCase(courseRepository);
     const getCourse = new GetCourse(courseRepository);
     const deleteUserCourse = new DeleteCourseUseCase(courseRepository);
+    // === ===
     const createDocUseCase = new CreateDocUseCase(
       docRepository,
       idGenerator,
       cloudinaryService
     );
     const getDocByCourse = new GetDocByCourse(docRepository);
+    // === ===
+    const createQuestionUseCase = new CreateQuestionUseCase(
+      questionRepository,
+      optionRepository,
+      idGenerator,
+      docRepository,
+      aiService,
+      courseRepository
+    );
+
+    const getCourseQuestionUseCase = new GetCourseQuestionUseCase(
+      questionRepository
+    );
+    const getQuestionAndOptionUseCase = new GetQuestionAndOptionUseCase(
+      questionRepository,
+      optionRepository
+    );
 
     this.register("createUserUseCase", createUserUseCase);
     this.register("getUserUseCase", getUserUseCase);
@@ -97,6 +134,9 @@ export class DIContainer {
     this.register("getCourse", getCourse);
     this.register("deleteUserCourse", deleteUserCourse);
     this.register("createDocUseCase", createDocUseCase);
+    this.register("createCourseUseCase", createQuestionUseCase);
+    this.register("getCourseQuestionUseCase", getCourseQuestionUseCase);
+    this.register("getQuestionAndOptionUseCase", getQuestionAndOptionUseCase);
 
     // ============== Validators ==============
     const userValidator = new UserValidator();
@@ -124,6 +164,13 @@ export class DIContainer {
     this.register("courseController", courseController);
     const docController = new DocController(createDocUseCase, userValidator);
     this.register("docController", docController);
+    const questionController = new QuestionController(
+      createQuestionUseCase,
+      userValidator,
+      getCourseQuestionUseCase,
+      getQuestionAndOptionUseCase
+    );
+    this.register("questionController", questionController);
   }
 
   public register<T>(name: string, dependencies: T): void {
