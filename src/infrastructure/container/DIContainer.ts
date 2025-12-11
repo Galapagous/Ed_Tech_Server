@@ -29,6 +29,8 @@ import { CreateQuestionUseCase } from "@/application/use-case/question-case/Crea
 import { QuestionController } from "@/presentation/controllers/QuestionController";
 import { GetCourseQuestionUseCase } from "@/application/use-case/question-case/GetCourseQuestionUseCase";
 import { GetQuestionAndOptionUseCase } from "@/application/use-case/question-case/GetQuestionAndOptionUseCase";
+import { ResultController } from "@/presentation/controllers/ResultController";
+import { CreateResultUseCase } from "@/application/use-case/result-case/CreateResultUseCase";
 dotenv.config();
 
 export class DIContainer {
@@ -69,6 +71,7 @@ export class DIContainer {
     this.register("questionRepository", questionRepository);
     const optionRepository = new PostgreSQLOptionRepository(pool);
     this.register("optionRepository", optionRepository);
+    // this.register("resultRepository", )
     //   Services
 
     const passwordHasher = new BcryptPasswordHasher();
@@ -127,6 +130,8 @@ export class DIContainer {
       questionRepository,
       optionRepository
     );
+    // === ===
+    const createResultUseCase = new CreateResultUseCase();
 
     this.register("createUserUseCase", createUserUseCase);
     this.register("getUserUseCase", getUserUseCase);
@@ -151,7 +156,6 @@ export class DIContainer {
       userValidator,
       loginUserUseCase
     );
-    this.register("userController", userController);
     const courseController = new CourseController(
       createCourseUseCase,
       courseValidator,
@@ -161,16 +165,19 @@ export class DIContainer {
       deleteUserCourse,
       getDocByCourse
     );
-    this.register("courseController", courseController);
     const docController = new DocController(createDocUseCase, userValidator);
-    this.register("docController", docController);
     const questionController = new QuestionController(
       createQuestionUseCase,
       userValidator,
       getCourseQuestionUseCase,
       getQuestionAndOptionUseCase
     );
+    const resultController = new ResultController(createResultUseCase);
+    this.register("userController", userController);
+    this.register("courseController", courseController);
+    this.register("docController", docController);
     this.register("questionController", questionController);
+    this.register("resultController", resultController);
   }
 
   public register<T>(name: string, dependencies: T): void {
