@@ -4,7 +4,7 @@ import { Question } from "../entities/question";
 export interface QuestionRepository {
   save(question: Question): Promise<Question>;
   findByCourse(id: string): Promise<Question[] | null>;
-  findById(id: string): Promise<Question[] | []>;
+  findById(id: string): Promise<Question | null>;
 }
 
 export interface OptionRepository {

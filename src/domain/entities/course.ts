@@ -14,20 +14,6 @@ export class Course {
     public readonly filePath: string
   ) {}
 
-  // public update(doc: IDoc): Course {
-  //   if (!doc) {
-  //     throw new Error("No file uploaded");
-  //   }
-  //   return new Course(
-  //     this.id,
-  //     this.title,
-  //     this.description,
-  //     this.createdAt,
-  //     new Date(),
-  //     this.ownerid
-  //   );
-  // }
-
   public static create(
     id: string,
     title: string,

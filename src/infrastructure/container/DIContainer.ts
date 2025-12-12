@@ -31,6 +31,9 @@ import { GetCourseQuestionUseCase } from "@/application/use-case/question-case/G
 import { GetQuestionAndOptionUseCase } from "@/application/use-case/question-case/GetQuestionAndOptionUseCase";
 import { ResultController } from "@/presentation/controllers/ResultController";
 import { CreateResultUseCase } from "@/application/use-case/result-case/CreateResultUseCase";
+import { ResultValidator } from "@/application/validators/ResultValidator";
+import { PostgresResultRepository } from "../repositories/PostgresResultRepository";
+import { PostgresAnserRepository } from "../repositories/PostgresSQLAnswerRepository";
 dotenv.config();
 
 export class DIContainer {
@@ -71,7 +74,10 @@ export class DIContainer {
     this.register("questionRepository", questionRepository);
     const optionRepository = new PostgreSQLOptionRepository(pool);
     this.register("optionRepository", optionRepository);
-    // this.register("resultRepository", )
+    const resultRepository = new PostgresResultRepository(pool);
+    this.register("resultRepository", resultRepository);
+    const answerRepository = new PostgresAnserRepository(pool);
+    this.register("answerRepository", answerRepository);
     //   Services
 
     const passwordHasher = new BcryptPasswordHasher();
@@ -131,7 +137,13 @@ export class DIContainer {
       optionRepository
     );
     // === ===
-    const createResultUseCase = new CreateResultUseCase();
+    const createResultUseCase = new CreateResultUseCase(
+      idGenerator,
+      resultRepository,
+      questionRepository,
+      optionRepository,
+      answerRepository
+    );
 
     this.register("createUserUseCase", createUserUseCase);
     this.register("getUserUseCase", getUserUseCase);
@@ -146,8 +158,10 @@ export class DIContainer {
     // ============== Validators ==============
     const userValidator = new UserValidator();
     const courseValidator = new CourseValidator();
+    const resultValidator = new ResultValidator();
     this.register("userValidator", userValidator);
     this.register("courseValidator", courseValidator);
+    this.register("resultValidator", resultValidator);
 
     //  ============== controllers ==============
     const userController = new UserController(
@@ -172,7 +186,10 @@ export class DIContainer {
       getCourseQuestionUseCase,
       getQuestionAndOptionUseCase
     );
-    const resultController = new ResultController(createResultUseCase);
+    const resultController = new ResultController(
+      createResultUseCase,
+      resultValidator
+    );
     this.register("userController", userController);
     this.register("courseController", courseController);
     this.register("docController", docController);

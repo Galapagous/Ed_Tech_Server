@@ -1,0 +1,27 @@
+import { Answer } from "@/domain/entities/answer";
+import { Answerrepository } from "@/domain/repositories/AnswerRepository";
+import { Pool } from "pg";
+
+export class PostgresAnserRepository implements Answerrepository {
+  constructor(private pool: Pool) {}
+
+  async save(answer: Answer): Promise<Answer> {
+    const query = `INSERT INTO answers (id, questionId, optionId, attemptId, isCorrect)`;
+    const value = [
+      answer.id,
+      answer.questionId,
+      answer.optionId,
+      answer.attemptId,
+      answer.isCorrect,
+    ];
+
+    const result = await this.pool.query(query, value);
+    return result.rows[0];
+  }
+
+  async findByAttemptId(id: string): Promise<Answer[] | []> {
+    const query = `SELECT * FROM answers WHERE attemptId = $1`;
+    const result = await this.pool.query(query, [id]);
+    return result.rows;
+  }
+}
