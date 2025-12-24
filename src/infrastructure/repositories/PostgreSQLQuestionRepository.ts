@@ -33,7 +33,7 @@ export class PostgreSQLQuestionRepository implements QuestionRepository {
     return result.rows;
   }
 
-  async findById(id: string): Promise<Question[] | []> {
+  async findById(id: string): Promise<Question | null> {
     const query = `SELECT 
     id,
     question
@@ -41,6 +41,6 @@ export class PostgreSQLQuestionRepository implements QuestionRepository {
     WHERE id = $1
     `;
     const result = await this.pool.query(query, [id]);
-    return result.rows[0];
+    return result.rows[0] || null;
   }
 }
