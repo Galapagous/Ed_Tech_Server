@@ -6,8 +6,13 @@ export class PostgresAnserRepository implements Answerrepository {
   constructor(private pool: Pool) {}
 
   async save(answer: Answer): Promise<Answer> {
-    const query = `INSERT INTO answers (id, questionId, optionId, attemptId, isCorrect)`;
-    const value = [
+    const query = `
+    INSERT INTO answers (id, questionId, optionId, attemptId, isCorrect)
+    VALUES ($1, $2, $3, $4, $5)
+    RETURNING *;
+  `;
+
+    const values = [
       answer.id,
       answer.questionId,
       answer.optionId,
@@ -15,7 +20,7 @@ export class PostgresAnserRepository implements Answerrepository {
       answer.isCorrect,
     ];
 
-    const result = await this.pool.query(query, value);
+    const result = await this.pool.query(query, values);
     return result.rows[0];
   }
 

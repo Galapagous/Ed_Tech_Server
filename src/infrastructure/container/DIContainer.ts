@@ -31,6 +31,7 @@ import { GetCourseQuestionUseCase } from "@/application/use-case/question-case/G
 import { GetQuestionAndOptionUseCase } from "@/application/use-case/question-case/GetQuestionAndOptionUseCase";
 import { ResultController } from "@/presentation/controllers/ResultController";
 import { CreateResultUseCase } from "@/application/use-case/result-case/CreateResultUseCase";
+import { GetResultUseCase } from "@/application/use-case/result-case/GetResultUseCase";
 import { ResultValidator } from "@/application/validators/ResultValidator";
 import { PostgresResultRepository } from "../repositories/PostgresResultRepository";
 import { PostgresAnserRepository } from "../repositories/PostgresSQLAnswerRepository";
@@ -145,6 +146,8 @@ export class DIContainer {
       answerRepository
     );
 
+    const getresultUseCase = new GetResultUseCase(resultRepository);
+
     this.register("createUserUseCase", createUserUseCase);
     this.register("getUserUseCase", getUserUseCase);
     this.register("createCourseUseCase", createCourseUseCase);
@@ -188,6 +191,7 @@ export class DIContainer {
     );
     const resultController = new ResultController(
       createResultUseCase,
+      getresultUseCase,
       resultValidator
     );
     this.register("userController", userController);

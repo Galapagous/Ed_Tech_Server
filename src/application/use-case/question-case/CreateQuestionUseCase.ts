@@ -40,17 +40,25 @@ export class CreateQuestionUseCase {
       throw new Error("No documents found for this course");
     }
 
-    if (course?.filePath === null || course?.filePath === "") {
+    console.log("docs is ==>", docs, "course ==>", course);
+
+    if (
+      course?.filePath === "" ||
+      course?.filePath === null ||
+      course?.filePath === undefined
+    ) {
       // =====> Generate new one <=====
+      console.log("decided ==> creating new path");
       const pdfText = await Promise.all(
         docs.map(async (doc) => await generatePDF(doc.url))
       );
-
+      console.log("done creating ==>", pdfText);
       questions = await this.aiGenerator.generateQuestion(
         pdfText.join("--------- > End of document <-----------")
       );
     } else {
       // =====> Extract from txt file <=====
+      console.log("Else is running ==> checking old path");
       const url = path.join(
         process.cwd(),
         AI_fILE_PATH,

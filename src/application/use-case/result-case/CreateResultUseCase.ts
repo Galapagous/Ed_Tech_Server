@@ -32,9 +32,11 @@ export class CreateResultUseCase {
         const options = await this.optionRepository.findByQuestion(
           answer.questionId
         );
+
         const validAns = options?.filter(
           (val) => val.option_id === questionInfo?.answer
         );
+
         const isCorrect = validAns && validAns[0].option_id === answer.answerId;
         if (isCorrect) score += 1;
         // save answer
@@ -45,6 +47,7 @@ export class CreateResultUseCase {
           id,
           isCorrect || false
         );
+
         return await this.answerRepository.save(savedAnswer);
       })
     );

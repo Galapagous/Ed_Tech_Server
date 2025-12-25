@@ -36,6 +36,7 @@ export class PostgreSQLQuestionRepository implements QuestionRepository {
   async findById(id: string): Promise<Question | null> {
     const query = `SELECT 
     id,
+    answer,
     question
     FROM questions
     WHERE id = $1

@@ -1,0 +1,244 @@
+```json
+[
+  {
+    "question": "What is the primary focus of this study on corruption in Nigeria, as stated in the abstract?",
+    "options": [
+      {
+        "id": "A",
+        "value": "To investigate the factors encouraging financial corruption among Nigerian public officials and recommend solutions."
+      },
+      {
+        "id": "B",
+        "value": "To assess the global impact of Nigerian public officials' corruption on international trade."
+      },
+      {
+        "id": "C",
+        "value": "To quantify the exact amount of money stolen by corrupt Nigerian leaders since 1960."
+      },
+      {
+        "id": "D",
+        "value": "To compare corruption levels between Nigeria's public and private sectors."
+      }
+    ],
+    "correctIndex": "A",
+    "explanation": "The abstract explicitly states: 'This study, therefore, focused on economic and financial corruption by public officials in Nigeria. It investigates the factors that encourage financial corruption among public officials in Nigeria as well as recommends what government should do to tackle the issue.'",
+    "difficulty": "easy"
+  },
+  {
+    "question": "Beyond individual greed, which societal factor is most consistently highlighted as contributing to financial corruption by public officials in Nigeria?",
+    "options": [
+      {
+        "id": "A",
+        "value": "The lack of robust international financial regulations."
+      },
+      {
+        "id": "B",
+        "value": "A societal culture that prioritizes wealth and status above ethical conduct, irrespective of its source."
+      },
+      {
+        "id": "C",
+        "value": "The inefficiency of anti-corruption agencies."
+      },
+      {
+        "id": "D",
+        "value": "The historical legacy of colonial rule."
+      }
+    ],
+    "correctIndex": "B",
+    "explanation": "The text repeatedly emphasizes 'societal moral decadence,' 'societal yardstick of measurement of a person’s status by bank account balance and assets owned, regardless of how the possessions were earned or acquired,' and 'moral decadence that acknowledges and celebrates wealth without question' as major factors.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "How do the Anomie Theory and Social Disorganization Theory, as applied in this study, primarily help understand financial corruption in Nigeria?",
+    "options": [
+      {
+        "id": "A",
+        "value": "By focusing on the psychological profiles of individual corrupt officials."
+      },
+      {
+        "id": "B",
+        "value": "By explaining that crime stems from a breakdown of social order and weak social control mechanisms."
+      },
+      {
+        "id": "C",
+        "value": "By analyzing the economic impact of corruption on GDP growth."
+      },
+      {
+        "id": "D",
+        "value": "By proposing specific legal reforms to prosecute corrupt officials."
+      }
+    ],
+    "correctIndex": "B",
+    "explanation": "The text states Anomie theory suggests 'crime stems from breakdown of social order due to a decline in standards and values,' and Social Disorganization Theory posits 'weakened social control mechanisms lead to corruption and other deviant behaviours.'",
+    "difficulty": "medium"
+  },
+  {
+    "question": "What significant limitation did the study acknowledge regarding its primary data collection method?",
+    "options": [
+      {
+        "id": "A",
+        "value": "The Microsoft questionnaire was too expensive to administer."
+      },
+      {
+        "id": "B",
+        "value": "The snowball sampling technique introduced researcher bias."
+      },
+      {
+        "id": "C",
+        "value": "The views of the poor and rural population were excluded due to digital access requirements."
+      },
+      {
+        "id": "D",
+        "value": "The use of mixed methods made data analysis overly complex."
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "The methodology section explicitly states: 'The only limitation to this method is that only the educated Nigerians and those who had access to computer, android phones and internet availability were able to participate (excluding the views of the poor and rural population).'",
+    "difficulty": "easy"
+  },
+  {
+    "question": "According to the study's recommendations, what is identified as a primary statutory factor encouraging public officials' financial fraud with impunity in Nigeria?",
+    "options": [
+      {
+        "id": "A",
+        "value": "The insufficient funding of anti-corruption agencies."
+      },
+      {
+        "id": "B",
+        "value": "The immunity clause that protects political office holders while in office."
+      },
+      {
+        "id": "C",
+        "value": "The global interconnectedness of financial institutions."
+      },
+      {
+        "id": "D",
+        "value": "The lack of public awareness campaigns against corruption."
+      }
+    ],
+    "correctIndex": "B",
+    "explanation": "The conclusion states: 'this paper recommends the removal of the immunity clause that political office holders are misusing to abuse political power. The immunity clause is the statutory motivating factor that encourages public officials in Nigeria to commit financial fraud with impunity since the corrupt politicians cannot be prosecuted by the law enforcement agencies for their misconducts while in office.'",
+    "difficulty": "medium"
+  },
+  {
+    "question": "In the context of this study, how does 'godfatherism' primarily contribute to financial corruption by public officials in Nigeria?",
+    "options": [
+      {
+        "id": "A",
+        "value": "By providing spiritual guidance and moral support to newly elected officials."
+      },
+      {
+        "id": "B",
+        "value": "By offering essential training and mentorship programs for public servants."
+      },
+      {
+        "id": "C",
+        "value": "By sponsoring public officials into office with the expectation of financial compensation, often through illicit means."
+      },
+      {
+        "id": "D",
+        "value": "By advocating for stricter anti-corruption laws and judicial processes."
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "The text explains: 'sponsorship of public officials into public offices by them is seen as a way of gaining social and financial advancement. Such public officials who owe positions to godfathers incur debts they must repay throughout their tenure... In most cases, the repayment of such debt is always monetary and can only be made by financial corruption.'",
+    "difficulty": "easy"
+  },
+  {
+    "question": "The study suggests that David Cameron's 'fantastically corrupt' remark regarding Nigeria would be 'valid and acceptable' under what specific condition?",
+    "options": [
+      {
+        "id": "A",
+        "value": "If it were directed solely at corrupt public officials rather than generalized to all Nigerians."
+      },
+      {
+        "id": "B",
+        "value": "If Nigeria were not a leading crude oil producer and exporter."
+      },
+      {
+        "id": "C",
+        "value": "If the comment were made by a Nigerian official instead of a foreign leader."
+      },
+      {
+        "id": "D",
+        "value": "If Transparency International's CPI had shown Nigeria to be less corrupt that year."
+      }
+    ],
+    "correctIndex": "A",
+    "explanation": "The text states: 'Nonetheless, Dominic et al. (2023) argues that the generalization of all Nigerians as corrupt is inaccurate, logically flawed, and morally objectionable... The vituperation would however been valid and acceptable if it is directed at just the corrupt public officials (Dominic et al., 2023).'",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Despite the establishment of anti-corruption agencies like the EFCC and ICPC, the text indicates what about their efforts in Nigeria?",
+    "options": [
+      {
+        "id": "A",
+        "value": "They have successfully eradicated grand corruption cases."
+      },
+      {
+        "id": "B",
+        "value": "Their operations are primarily focused on the private sector."
+      },
+      {
+        "id": "C",
+        "value": "Their efforts have been largely unsuccessful, with corruption continuing unabated and with impunity."
+      },
+      {
+        "id": "D",
+        "value": "They primarily serve as research bodies for international financial institutions."
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "The text explicitly states: 'Meanwhile, attempts by several governments in Nigeria to combat corruption by establishing anti-corruption agencies have glaringly been unsuccessful (Albert, 2016)... yet corruption goes unabated and with impunity.'",
+    "difficulty": "easy"
+  },
+  {
+    "question": "The recurring phrase 'national cake' in participants' responses, when discussing why public officials are celebrated, most strongly implies what perception of public office in Nigeria?",
+    "options": [
+      {
+        "id": "A",
+        "value": "Public office is an opportunity for collective national investment and growth."
+      },
+      {
+        "id": "B",
+        "value": "Public office is a means to distribute resources equitably among all citizens."
+      },
+      {
+        "id": "C",
+        "value": "Public office is a source of personal enrichment and shared spoils among an exclusive group."
+      },
+      {
+        "id": "D",
+        "value": "Public office is a platform for implementing rigorous accountability measures."
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "Participants' responses like 'they will get their share of the cake later,' 'their time has come to have their share of the national cake,' and 'An opportunity to plunder the commonwealth has manifested' strongly imply a perception of public office as a means for personal and group gain, rather than public service or equitable distribution.",
+    "difficulty": "hard"
+  },
+  {
+    "question": "Which of the following best synthesizes the socio-economic pressures that lead public officials in Nigeria to engage in financial corruption, as presented in the study?",
+    "options": [
+      {
+        "id": "A",
+        "value": "The overwhelming demands from international donors and lending institutions."
+      },
+      {
+        "id": "B",
+        "value": "A combination of personal poverty, the obligation to support extended family, and societal expectations for flamboyant wealth."
+      },
+      {
+        "id": "C",
+        "value": "The high cost of election campaigns and lack of state funding for political parties."
+      },
+      {
+        "id": "D",
+        "value": "Insufficient salaries for public officials that force them into corrupt practices."
+      }
+    ],
+    "correctIndex": "B",
+    "explanation": "The 'Discussion of findings' section details 'poverty, family pressure and societal expectations.' It mentions 'alleviate themselves and their families from poverty,' 'fulfil familial duties,' and 'need to live in flamboyant opulence and be involved in lavish showy spending to meet financial expectations' as driving factors.",
+    "difficulty": "hard"
+  }
+]
+```
