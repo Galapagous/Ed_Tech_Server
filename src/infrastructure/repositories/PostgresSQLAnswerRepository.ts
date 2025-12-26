@@ -1,8 +1,8 @@
 import { Answer } from "@/domain/entities/answer";
-import { Answerrepository } from "@/domain/repositories/AnswerRepository";
+import { AnswerRepository } from "@/domain/repositories/AnswerRepository";
 import { Pool } from "pg";
 
-export class PostgresAnserRepository implements Answerrepository {
+export class PostgresAnserRepository implements AnswerRepository {
   constructor(private pool: Pool) {}
 
   async save(answer: Answer): Promise<Answer> {

@@ -35,6 +35,8 @@ import { GetResultUseCase } from "@/application/use-case/result-case/GetResultUs
 import { ResultValidator } from "@/application/validators/ResultValidator";
 import { PostgresResultRepository } from "../repositories/PostgresResultRepository";
 import { PostgresAnserRepository } from "../repositories/PostgresSQLAnswerRepository";
+import { GetAnswerUseCase } from "@/application/use-case/answer-case/GetAnswerUseCase";
+import { AnswerController } from "@/presentation/controllers/AnswerController";
 dotenv.config();
 
 export class DIContainer {
@@ -147,6 +149,11 @@ export class DIContainer {
     );
 
     const getresultUseCase = new GetResultUseCase(resultRepository);
+    const getAnswerUseCase = new GetAnswerUseCase(
+      answerRepository,
+      questionRepository,
+      optionRepository
+    );
 
     this.register("createUserUseCase", createUserUseCase);
     this.register("getUserUseCase", getUserUseCase);
@@ -157,7 +164,7 @@ export class DIContainer {
     this.register("createCourseUseCase", createQuestionUseCase);
     this.register("getCourseQuestionUseCase", getCourseQuestionUseCase);
     this.register("getQuestionAndOptionUseCase", getQuestionAndOptionUseCase);
-
+    this.register("getAnswerUsecase", getAnswerUseCase);
     // ============== Validators ==============
     const userValidator = new UserValidator();
     const courseValidator = new CourseValidator();
@@ -194,11 +201,13 @@ export class DIContainer {
       getresultUseCase,
       resultValidator
     );
+    const answerController = new AnswerController(getAnswerUseCase);
     this.register("userController", userController);
     this.register("courseController", courseController);
     this.register("docController", docController);
     this.register("questionController", questionController);
     this.register("resultController", resultController);
+    this.register("answerController", answerController);
   }
 
   public register<T>(name: string, dependencies: T): void {

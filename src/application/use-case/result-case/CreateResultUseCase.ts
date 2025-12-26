@@ -6,7 +6,7 @@ import {
   OptionRepository,
   QuestionRepository,
 } from "@/domain/repositories/QuestionRepository";
-import { Answerrepository } from "@/domain/repositories/AnswerRepository";
+import { AnswerRepository } from "@/domain/repositories/AnswerRepository";
 import { Answer } from "@/domain/entities/answer";
 
 export class CreateResultUseCase {
@@ -15,7 +15,7 @@ export class CreateResultUseCase {
     private resultRepository: ResultRepository,
     private questionRepository: QuestionRepository,
     private optionRepository: OptionRepository,
-    private answerRepository: Answerrepository
+    private answerRepository: AnswerRepository
   ) {}
 
   async execute(dto: CreateResultDTO): Promise<any> {
