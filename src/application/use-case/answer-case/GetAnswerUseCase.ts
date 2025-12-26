@@ -14,7 +14,6 @@ export class GetAnswerUseCase {
   async execute(dto: string): Promise<AnswerRepository[]> {
     // fetch questions and answer
     const results = await this.answerRepository.findByAttemptId(dto);
-    const answerData = results;
     // attach question
     const resultInfo = await Promise.all(
       results.map(async (result: any) => {
@@ -25,7 +24,7 @@ export class GetAnswerUseCase {
           result.questionid
         );
 
-        return { ...result, questionInfo, optionInfo };
+        return { ...result, question: questionInfo, options: optionInfo };
       })
     );
     // attach options

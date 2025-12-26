@@ -36,8 +36,7 @@ export class CreateResultUseCase {
         const validAns = options?.filter(
           (val) => val.option_id === questionInfo?.answer
         );
-
-        const isCorrect = validAns && validAns[0].option_id === answer.answerId;
+        const isCorrect = validAns && validAns[0].id === answer.answerId;
         if (isCorrect) score += 1;
         // save answer
         const savedAnswer = Answer.create(
