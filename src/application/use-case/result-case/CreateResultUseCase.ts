@@ -6,7 +6,7 @@ import {
   OptionRepository,
   QuestionRepository,
 } from "@/domain/repositories/QuestionRepository";
-import { Answerrepository } from "@/domain/repositories/AnswerRepository";
+import { AnswerRepository } from "@/domain/repositories/AnswerRepository";
 import { Answer } from "@/domain/entities/answer";
 
 export class CreateResultUseCase {
@@ -15,7 +15,7 @@ export class CreateResultUseCase {
     private resultRepository: ResultRepository,
     private questionRepository: QuestionRepository,
     private optionRepository: OptionRepository,
-    private answerRepository: Answerrepository
+    private answerRepository: AnswerRepository
   ) {}
 
   async execute(dto: CreateResultDTO): Promise<any> {
@@ -36,8 +36,7 @@ export class CreateResultUseCase {
         const validAns = options?.filter(
           (val) => val.option_id === questionInfo?.answer
         );
-
-        const isCorrect = validAns && validAns[0].option_id === answer.answerId;
+        const isCorrect = validAns && validAns[0].id === answer.answerId;
         if (isCorrect) score += 1;
         // save answer
         const savedAnswer = Answer.create(

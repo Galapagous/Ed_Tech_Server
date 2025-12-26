@@ -13,6 +13,8 @@ import { QuestionController } from "./presentation/controllers/QuestionControlle
 import { createQuestionRoute } from "./presentation/routes/questionRoute";
 import { ResultController } from "./presentation/controllers/ResultController";
 import { createResultRoute } from "./presentation/routes/resultRoute";
+import { createAnswerRoute } from "./presentation/routes/answerRoute";
+import { AnswerController } from "./presentation/controllers/AnswerController";
 
 export function createApp(): express.Application {
   const app = express();
@@ -39,11 +41,13 @@ export function createApp(): express.Application {
   const questionController =
     container.get<QuestionController>("questionController");
   const resultController = container.get<ResultController>("resultController");
+  const answerController = container.get<AnswerController>("answerController");
   app.use("/api/auth", createUserRoutes(userController));
   app.use("/api/course", createCourseRoute(courseController));
   app.use("/api/doc", createDocRoute(docController));
   app.use("/api/question", createQuestionRoute(questionController));
   app.use("/api/result", createResultRoute(resultController));
+  app.use("/api/answer", createAnswerRoute(answerController));
 
   app.use("/", (req, res) => {
     res.send("Hello from backend");
