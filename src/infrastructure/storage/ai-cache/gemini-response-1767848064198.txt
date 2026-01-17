@@ -1,0 +1,124 @@
+```json
+[
+  {
+    "question": "Which of the following best encapsulates the fundamental difference in data interaction and ownership between Web2 and Web3, as described in the text?",
+    "options": [
+      { "id": "A", "value": "Web2 is read-only, while Web3 is read-write." },
+      { "id": "B", "value": "Web2 allows user content publication but retains third-party control over data, whereas Web3 empowers users with data ownership and control." },
+      { "id": "C", "value": "Web2 provides dynamic pages, while Web3 exclusively supports static content viewing." },
+      { "id": "D", "value": "Web2 guarantees data immutability, while Web3 enables flexible data modification by centralized entities." }
+    ],
+    "correctIndex": "B",
+    "explanation": "The text states that Web2 is 'readable and writable network' enabling user engagement but 'is plagued by issues concerning the collection and storage of users’ personal data on third-party platforms.' In contrast, Web3 'not only supports readable and writable but also ensures that users maintain ownership of their data' and is known as the 'read-write-own' web because 'it empowers users to retain ownership of their data.'",
+    "difficulty": "medium"
+  },
+  {
+    "question": "To address Research Question 1 (RQ1) regarding the categories of Web3 projects, the researchers undertook a multi-step approach. What was the final method employed to cluster the collected Web3 projects into meaningful categories?",
+    "options": [
+      { "id": "A", "value": "Quantitative analysis of investment amounts to rank projects by financial success." },
+      { "id": "B", "value": "Direct consultation with Web3 venture capital firms to obtain their classification schema." },
+      { "id": "C", "value": "Open card sorting, grouping projects based on summarizations of their functionalities." },
+      { "id": "D", "value": "Keyword filtering of official websites to automatically assign projects to predefined categories." }
+    ],
+    "correctIndex": "C",
+    "explanation": "Under '3.1. Approach', Step 3 details: 'After determining a summarization for each project, we performed card sorting [26] to identify categories based on these summarizations... we decided to follow an open card sorting approach to analyze these projects.' This process resulted in the two high-level categories and their subcategories.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "The text identifies 'Scalability' as a system-level challenge for Web3, citing low throughput and high gas fees. It also mentions 'Layer 2 scaling solutions' as a subcategory of Web3 infrastructure. Given this context, which of the following best explains the specific caveat associated with Layer 2 scaling solutions in the text?",
+    "options": [
+      { "id": "A", "value": "They often require users to pay significantly higher transaction fees compared to Layer 1 networks." },
+      { "id": "B", "value": "They inherently lead to complete centralization of data storage, undermining Web3's core principles." },
+      { "id": "C", "value": "They risk reduced decentralization and potential security issues while improving throughput." },
+      { "id": "D", "value": "They process all transactions off-chain without reporting any information to Layer 1, making verification impossible." }
+    ],
+    "correctIndex": "C",
+    "explanation": "Under '5.1. Challenge at the system level', S1) Scalability states: 'While some layer 2 scaling solutions have been proposed, they risk reduced decentralization and potential security issues.' This highlights the trade-offs involved in achieving scalability.",
+    "difficulty": "hard"
+  },
+  {
+    "question": "Based on the code-level findings presented in Table 1, which subcategory of Web3 applications demonstrated the most significant developer activity, as quantified by the number of open-source projects, total code lines, and commits?",
+    "options": [
+      { "id": "A", "value": "Trading & exchange" },
+      { "id": "B", "value": "NFT Marketplaces" },
+      { "id": "C", "value": "Lending" },
+      { "id": "D", "value": "Gaming (Web3 applications)" }
+    ],
+    "correctIndex": "C",
+    "explanation": "According to '4.2. Code-level findings', 'Observation 2: Lending is the most active subcategory in Web3 application development. As shown in Table 1, the Lending subcategory has the largest number of open-source projects among the Web3 application subcategories, with 12 projects. Moreover, the total numbers of code lines and commits are higher than in other subcategories, at 595,999 and 11,205, respectively.'",
+    "difficulty": "medium"
+  },
+  {
+    "question": "The text lists 'Collaboration' as a key opportunity presented by Web3, specifically mentioning Decentralized Autonomous Organizations (DAOs). How do DAOs fundamentally transform traditional organizational models to realize this opportunity?",
+    "options": [
+      { "id": "A", "value": "By replacing all human decision-making with fully automated artificial intelligence systems." },
+      { "id": "B", "value": "By centralizing power and decision-making among a select group of core developers and founders." },
+      { "id": "C", "value": "By enabling decentralized governance and transparent operations through smart contracts and token holder voting." },
+      { "id": "D", "value": "By eliminating the need for any financial incentives, relying solely on volunteer contributions." }
+    ],
+    "correctIndex": "C",
+    "explanation": "Under '5.4. Opportunities in Web3', O2) Collaboration states: 'DAOs facilitate new collaboration models. They transform the traditional organizational model through decentralized governance and transparent operations, providing a significant opportunity to create a more efficient and democratic form of organization.' The MakerDAO example further illustrates decisions made through 'a voting process by MakerDAO token holders.'",
+    "difficulty": "medium"
+  },
+  {
+    "question": "A user inadvertently signs a 'setApprovalForAll' transaction launched by a Web3 application if they cannot understand the transaction details, leading to the transfer of all their assets to another party. According to the text, which user-level challenge does this scenario primarily exemplify?",
+    "options": [
+      { "id": "A", "value": "Data recovery" },
+      { "id": "B", "value": "Code security" },
+      { "id": "C", "value": "Usability" },
+      { "id": "D", "value": "Interoperability" }
+    ],
+    "correctIndex": "C",
+    "explanation": "Under '5.3. Challenge at the user level', U2) Usability states: 'The user interface of Web3 applications is more complex and challenging to operate than that of Web2 applications. When interacting with a Web3 application, users are typically presented with a wallet interface containing complex strings, which can be confusing and result in potential asset loss. For example, a user may inadvertently sign a “setApprovalForAll” transaction... if he or she cannot understand the transaction details, resulting in the transfer of all his or her assets to another party.' This perfectly matches the described scenario.",
+    "difficulty": "hard"
+  },
+  {
+    "question": "The research found that Web3 applications deployed on multiple blockchains tend to have more users and a higher market cap compared to those on a single blockchain. Concurrently, 'Cross-chain interoperability' is identified as a subcategory of Web3 infrastructure. What can be inferred about the practical impact of cross-chain interoperability on the success of Web3 applications?",
+    "options": [
+      { "id": "A", "value": "Cross-chain interoperability is a largely theoretical concept with minimal real-world impact on user adoption." },
+      { "id": "B", "value": "The ability to operate across various blockchains significantly expands a Web3 application's potential user base and economic value." },
+      { "id": "C", "value": "Web3 applications are ideally designed to function on single, isolated blockchain networks to maximize security." },
+      { "id": "D", "value": "The development of cross-chain interoperability solutions is primarily a result of already successful Web3 applications seeking new features." }
+    ],
+    "correctIndex": "B",
+    "explanation": "Under '4.3. Market-level findings', 'Observation 5: Web3 applications deployed on multiple blockchains have more users and a higher market cap.' This directly indicates that being multi-chain (enabled by cross-chain interoperability) correlates with greater market success, implying that interoperability is a significant factor in user reach and economic value.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Which Web3 infrastructure project aims to address the high cost of storing large amounts of data on popular blockchain networks like Ethereum by encrypting and storing user files on network nodes, while only recording encrypted metadata on-chain?",
+    "options": [
+      { "id": "A", "value": "0x Protocol" },
+      { "id": "B", "value": "Filecoin" },
+      { "id": "C", "value": "Axelar" },
+      { "id": "D", "value": "Aztec Protocol" }
+    ],
+    "correctIndex": "B",
+    "explanation": "Under '3.2.8. Decentralized storage', the text explains that 'Storing data on popular blockchain networks like Ethereum can be expensive... To address this issue, a decentralized storage network [47] was designed... Filecoin [48] is a popular decentralized storage network... In the Filecoin network, users pay fees based on file size and storage time, and then their files are stored on nodes.'",
+    "difficulty": "easy"
+  },
+  {
+    "question": "The text describes Web3 as the 'read-write-own' web, emphasizing users' control over their data. Which of the following Web3 advantages directly embodies this 'own' aspect, distinct from general privacy or immutability?",
+    "options": [
+      { "id": "A", "value": "Trustless, which ensures interactions do not depend on a trusted third party." },
+      { "id": "B", "value": "Anonymity, allowing users to interact without providing their real-world identity." },
+      { "id": "C", "value": "Immutability, ensuring that all data stored on the blockchain cannot be changed once recorded." },
+      { "id": "D", "value": "Ownability, which empowers users to manage and control their data through private and public keys." }
+    ],
+    "correctIndex": "D",
+    "explanation": "In the 'Introduction', Web3 is defined as the 'read-write-own' web because 'it empowers users to retain ownership of their data.' Later, under '2.2. Blockchain, smart contract and Web3', it lists '5) Ownability. Blockchain allows users to control their data through private and public keys.' This directly links 'Ownability' to the 'own' characteristic.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "The authors state their research 'contributes to a better understanding of Web3 for researchers and developers.' Which of the following accurately summarizes the *comprehensive scope* of this enhanced understanding provided by their key findings?",
+    "options": [
+      { "id": "A", "value": "Primarily an in-depth technical guide for smart contract programming languages and blockchain deployment statistics." },
+      { "id": "B", "value": "A detailed categorization of the Web3 ecosystem's structure, insights into project popularity at code and market levels, and an overview of critical challenges and strategic opportunities." },
+      { "id": "C", "value": "A historical comparative analysis of Web1, Web2, and Web3, focusing solely on their architectural designs and theoretical underpinnings." },
+      { "id": "D", "value": "A publicly available dataset of popular Web3 projects, without direct interpretive analysis of their functionalities or market performance." }
+    ],
+    "correctIndex": "B",
+    "explanation": "The '7. Conclusion' and 'Main contributions' sections summarize the research. The study 'gained insights into the Web3 ecosystem' (categorization), 'uncovered the popularity of Web3 projects from code and market perspectives,' and 'discussed the challenges facing the Web3 ecosystem... while also highlighting the opportunities within Web3.' This combination provides a comprehensive understanding for both audiences.",
+    "difficulty": "hard"
+  }
+]
+```

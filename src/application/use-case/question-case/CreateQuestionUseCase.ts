@@ -40,7 +40,7 @@ export class CreateQuestionUseCase {
       throw new Error("No documents found for this course");
     }
 
-    console.log("docs is ==>", docs, "course ==>", course);
+    // console.log("docs is ==>", docs, "course ==>", course);
 
     if (
       course?.filePath === "" ||
@@ -48,7 +48,7 @@ export class CreateQuestionUseCase {
       course?.filePath === undefined
     ) {
       // =====> Generate new one <=====
-      console.log("decided ==> creating new path");
+      // console.log("decided ==> creating new path");
       const pdfText = await Promise.all(
         docs.map(async (doc) => await generatePDF(doc.url))
       );

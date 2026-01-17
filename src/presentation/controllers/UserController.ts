@@ -3,7 +3,7 @@ import { GetUserUseCase } from "@/application/use-case/user-cases/GetUserUseCase
 import { LoginUserUseCase } from "@/application/use-case/user-cases/LoginUserUseCase";
 import { UserValidator } from "@/application/validators/UserValidator";
 import { Request, Response, NextFunction } from "express";
-import JwtTokenService from "../service/token";
+// import JwtTokenService from "../service/token";
 import { jwtTokenService } from "../service/jwtService";
 
 export class UserController {

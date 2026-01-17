@@ -29,7 +29,7 @@ export class GetAnswerUseCase {
     );
     // attach options
 
-    console.log(resultInfo);
+    // console.log(resultInfo);
     return resultInfo as any;
   }
 }

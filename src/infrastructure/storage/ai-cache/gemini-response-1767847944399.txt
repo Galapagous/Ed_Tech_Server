@@ -1,0 +1,242 @@
+[
+  {
+    "question": "The abstract states the study aimed to investigate \"potential challenges and opportunities within this emerging landscape.\" The introduction further discusses these. Which of the following statements *best* summarizes the *primary* reason Web3 was proposed, according to the text?",
+    "options": [
+      {
+        "id": "A",
+        "value": "To create a faster and more efficient internet than Web2."
+      },
+      {
+        "id": "B",
+        "value": "To centralize data ownership under secure, third-party platforms."
+      },
+      {
+        "id": "C",
+        "value": "To empower users with ownership and control over their data, addressing Web2's privacy issues."
+      },
+      {
+        "id": "D",
+        "value": "To facilitate the development of static, readable-only web pages."
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "The '1. Introduction' section explicitly states, 'Web3...empowers users to retain ownership of their data.' and 'To address these challenges [Web2's privacy issues], Web3 has been proposed, which not only supports readable and writable but also ensures that users maintain ownership of their data.' This highlights user data ownership and control as the primary driver for Web3's emergence in response to Web2's shortcomings.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "According to the study's methodology for Research Question 1 (RQ1), how were the 200 popular Web3 projects selected for detailed analysis?",
+    "options": [
+      {
+        "id": "A",
+        "value": "They were randomly chosen from a global database of all existing Web3 projects."
+      },
+      {
+        "id": "B",
+        "value": "They were identified by their high number of active users and then filtered by market cap."
+      },
+      {
+        "id": "C",
+        "value": "They were gathered from the portfolios of 10 leading Web3 venture capital firms and ranked by investment amount."
+      },
+      {
+        "id": "D",
+        "value": "They were selected based on the number of open-source code commits on GitHub."
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "In '3.1. Approach,' Step 1: Web3 project collection, the text states, 'We collected 200 popular Web3 projects invested by Web3 VC firms... Finally, we selected the top 200 Web3 projects based on their investment amount from Web3 VC firms.'",
+    "difficulty": "easy"
+  },
+  {
+    "question": "The study categorized the Web3 ecosystem into \"Web3 infrastructure\" and \"Web3 applications.\" Which of the following is an example of a Web3 infrastructure subcategory and its primary function, as described in the text?",
+    "options": [
+      {
+        "id": "A",
+        "value": "NFT Marketplaces: Platforms for trading non-fungible tokens directly to users."
+      },
+      {
+        "id": "B",
+        "value": "Public Chains: Aim to maximize scalability while ensuring sufficient security for the underlying network."
+      },
+      {
+        "id": "C",
+        "value": "Lending Protocols: Systems that pool funds from multiple lenders to provide loans to borrowers."
+      },
+      {
+        "id": "D",
+        "value": "Decentralized Autonomous Organizations (DAOs): Operate through smart contracts to manage an organization based on predefined rules."
+      }
+    ],
+    "correctIndex": "B",
+    "explanation": "The text defines 'Web3 infrastructure' as 'a variety of applications and solutions designed to support developers and enhance blockchain networks.' 'Public chains' are listed under '3.2. Web3 infrastructure,' and their description (3.2.7) states, 'Many public blockchains are exploring ways to maximize scalability while ensuring sufficient security.' Options A, C, and D are all categorized under 'Web3 applications' (3.3, 3.3.1, 3.3.4).",
+    "difficulty": "medium"
+  },
+  {
+    "question": "The authors discuss challenges at the system, developer, and user levels. Which of the following is identified as a challenge primarily at the *system level*?",
+    "options": [
+      {
+        "id": "A",
+        "value": "Difficulty for developers to design robust incentive mechanisms for token-based projects."
+      },
+      {
+        "id": "B",
+        "value": "The complexity of Web3 application user interfaces leading to potential asset loss."
+      },
+      {
+        "id": "C",
+        "value": "The limited ability of different blockchains to communicate directly with each other, restricting data and token flow."
+      },
+      {
+        "id": "D",
+        "value": "The risk of losing personal data and assets due to the loss of a private key."
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "In '5.1. Challenge at the system level,' S2 (Interoperability) is described as 'Different blockchains are not able to communicate with each other directly, which restricts the flow of data and tokens across them.' Option A is a developer-level challenge (D2), Option B is a user-level challenge (U2), and Option D is also a user-level challenge (U1).",
+    "difficulty": "easy"
+  },
+  {
+    "question": "Based on the 'Background' section, what is the fundamental distinction that separates Web3 from Web1 and Web2?",
+    "options": [
+      {
+        "id": "A",
+        "value": "Web3 introduces dynamic content and user-generated content, unlike Web1's static pages."
+      },
+      {
+        "id": "B",
+        "value": "Web3 eliminates the need for any form of network interaction, operating entirely offline."
+      },
+      {
+        "id": "C",
+        "value": "Web3 ensures user ownership and control over their data, a feature lacking in both Web1 (readable-only) and Web2 (centralized data storage)."
+      },
+      {
+        "id": "D",
+        "value": "Web3 reintroduces centralized servers to enhance network speed, a departure from Web2's distributed model."
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "Section '2.1. Web1, Web2 and Web3' states: 'Web1 is a readable-only network, whereas Web2 is a readable and writable network, and Web3 is a readable and writable network that empowers users with data ownership.' It also highlights Web2's 'issues concerning the collection and storage of users’ personal data on third-party platforms.' Therefore, user data ownership is the core differentiating feature of Web3.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "According to the market-level findings of the study (Section 4.3), which Web3 application subcategory demonstrated the highest popularity in terms of both user numbers and market capitalization?",
+    "options": [
+      {
+        "id": "A",
+        "value": "Lending"
+      },
+      {
+        "id": "B",
+        "value": "Trading & exchange"
+      },
+      {
+        "id": "C",
+        "value": "NFT marketplaces"
+      },
+      {
+        "id": "D",
+        "value": "Metaverse"
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "The text explicitly states in 'Observation 7: In Web3, NFT trading emerges as the most popular activity for users. As shown in Table 2, the NFT market has the highest number of users at 2,070,447 and the highest market cap at $24,687,589,059.'",
+    "difficulty": "easy"
+  },
+  {
+    "question": "The text identifies several opportunities presented by Web3. If a startup aims to create a platform where music artists can directly distribute their music, set their own terms, and share royalties with fans who purchase NFTs representing song ownership, which Web3 opportunity does this *primarily* align with, and what specific Web3 application subcategory is leveraged?",
+    "options": [
+      {
+        "id": "A",
+        "value": "Opportunity: Transparency; Application: Web3 for eliminating intermediaries."
+      },
+      {
+        "id": "B",
+        "value": "Opportunity: Business model; Application: NFT property rights."
+      },
+      {
+        "id": "C",
+        "value": "Opportunity: Collaboration; Application: DAO."
+      },
+      {
+        "id": "D",
+        "value": "Opportunity: Ownership of data; Application: Social NFT services."
+      }
+    ],
+    "correctIndex": "B",
+    "explanation": "The scenario describes an innovative way for artists to monetize and engage with fans, which aligns with 'O1) Business model' (5.4. Opportunities in Web3). The mechanism of using NFTs for song ownership and royalty sharing directly corresponds to the 'NFT property rights' subcategory, as detailed in section 3.3.2, which mentions Royal.io as a project providing 'NFT-based music copyright protection.'",
+    "difficulty": "hard"
+  },
+  {
+    "question": "Which of the following is *not* listed as a key advantage of blockchain technology that serves as the foundation for Web3?",
+    "options": [
+      {
+        "id": "A",
+        "value": "Immutability"
+      },
+      {
+        "id": "B",
+        "value": "Trustless"
+      },
+      {
+        "id": "C",
+        "value": "Centralized Control"
+      },
+      {
+        "id": "D",
+        "value": "Anonymity"
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "Section '2.2. Blockchain, smart contract and Web3' lists the key advantages as: '1) Immutability. 2) Trustless. 3) Availability. 4) Anonymity. 5) Ownability.' Centralized control is fundamentally antithetical to the decentralized nature of blockchain and Web3, and thus is not an advantage.",
+    "difficulty": "easy"
+  },
+  {
+    "question": "Considering the developer-level challenges discussed, why is \"Code security\" a particularly pressing concern for Web3 application developers compared to traditional software development?",
+    "options": [
+      {
+        "id": "A",
+        "value": "Web3 applications often operate on private, permissioned blockchains, making them easier targets."
+      },
+      {
+        "id": "B",
+        "value": "The public accessibility of Web3 application code on the blockchain makes it easier for attackers to find and exploit vulnerabilities."
+      },
+      {
+        "id": "C",
+        "value": "Web3 applications typically handle less sensitive financial assets, reducing the incentive for hackers."
+      },
+      {
+        "id": "D",
+        "value": "Developers of Web3 applications are generally less experienced in secure coding practices."
+      }
+    ],
+    "correctIndex": "B",
+    "explanation": "Section '5.2. Challenge at the developer level,' D1) Code security states: 'The code of Web3 applications deployed on the blockchain is publicly accessible, which makes it easier for hackers to exploit and launch attacks.' This public transparency, while beneficial for trust, presents a significant security challenge by exposing code to potential attackers.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Based on the study's code-level findings, what were the most popular programming language for smart contract development and the most popular blockchain network for deploying Web3 applications, respectively?",
+    "options": [
+      {
+        "id": "A",
+        "value": "JavaScript and Polygon"
+      },
+      {
+        "id": "B",
+        "value": "Python and Binance Smart Chain (BSC)"
+      },
+      {
+        "id": "C",
+        "value": "Solidity and Ethereum"
+      },
+      {
+        "id": "D",
+        "value": "C++ and Avalanche"
+      }
+    ],
+    "correctIndex": "C",
+    "explanation": "Section '4.2. Code-level findings' states: 'Observation 3: Ethereum is the most popular blockchain network used to deploy Web3 applications... 56 are deployed on the Ethereum network, accounting for 51.85% of the total.' It also notes 'Observation 4: Solidity is the most popular programming language for Web3 application smart contract development. Out of the 41 open-source Web3 applications, 37 of them utilized Solidity as their programming language for smart contract (back-end) development.'",
+    "difficulty": "easy"
+  }
+]
