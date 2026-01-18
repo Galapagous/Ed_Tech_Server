@@ -112,8 +112,11 @@ export class DIContainer {
       courseRepository,
       idGenerator
     );
-    const getUserCourseUseCase = new GetCourseUserCase(courseRepository);
-    const getCourse = new GetCourse(courseRepository);
+    const getUserCourseUseCase = new GetCourseUserCase(
+      courseRepository,
+      docRepository
+    );
+    const getCourse = new GetCourse(courseRepository, questionRepository);
     const deleteUserCourse = new DeleteCourseUseCase(courseRepository);
     // === ===
     const createDocUseCase = new CreateDocUseCase(
@@ -148,7 +151,10 @@ export class DIContainer {
       answerRepository
     );
 
-    const getresultUseCase = new GetResultUseCase(resultRepository);
+    const getresultUseCase = new GetResultUseCase(
+      resultRepository,
+      questionRepository
+    );
     const getAnswerUseCase = new GetAnswerUseCase(
       answerRepository,
       questionRepository,
